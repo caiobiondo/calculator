@@ -1,5 +1,6 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework import status
 
 from .models import Bof, Calculo, Calculoscombinada, Cboregracusteio, Comboloan, Dadoscalculadorapipeline, \
     Dgabaseoperacoes, Dgaceadiario, Dgacurvasjuros, Dgagrupos, Dgamatrizmigracao, Dgamontecarlo, \
@@ -17,6 +18,12 @@ class BofAPIView(APIView):
         bof = Bof.objects.all()
         serializer = BofSerializer(bof, many=True)
         return Response(serializer.data)
+
+    def post(self, request):
+        serializer = BofSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 class CalculoAPIView(APIView):
