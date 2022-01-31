@@ -25,7 +25,8 @@ SECRET_KEY = 'h9l(u+$s9wdhi^o#4z_@0h!#da#st+z8)9h4hm4t30)1+cokwj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 # Application definition
@@ -44,11 +45,19 @@ INSTALLED_APPS = [
     'django.contrib.sites',
 
     'CalculatorIrarocAPI',
+
+    'corsheaders',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
 ]
 
 SITE_ID = 1
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

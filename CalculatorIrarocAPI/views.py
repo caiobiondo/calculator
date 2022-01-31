@@ -33,6 +33,12 @@ class CalculoAPIView(APIView):
         serializer = CalculoSerializer(calculo, many=True)
         return Response(serializer.data)
 
+    def post(self, request):
+        serializer = CalculoSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
 
 class CalculoscombinadaAPIView(APIView):
     """API C.combindas"""
@@ -40,6 +46,12 @@ class CalculoscombinadaAPIView(APIView):
         calculoscombinada = Calculoscombinada.objects.all()
         serializer = CalculoscombinadaSerializer(calculoscombinada, many=True)
         return Response(serializer.data)
+
+    def post(self, request):
+        serializer = CalculoscombinadaSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.view()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 class CboregracusteioAPIView(APIView):
@@ -49,6 +61,12 @@ class CboregracusteioAPIView(APIView):
         serializer = CboregracusteioSerializer(cboregracusteio, many=True)
         return Response(serializer.data)
 
+    def post(self, request):
+        serializer = CboregracusteioSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.view()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
 
 class ComboloanAPIView(APIView):
     """API ComboLoan"""
@@ -56,6 +74,12 @@ class ComboloanAPIView(APIView):
         comboloan = Comboloan.objects.all()
         serializer = ComboloanSerializer(comboloan, many=True)
         return Response(serializer.data)
+
+    def post(self, request):
+        serializer = ComboloanSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.view()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 class DadoscalculadorapipelineAPIView(APIView):
@@ -65,6 +89,12 @@ class DadoscalculadorapipelineAPIView(APIView):
         serializer = DadoscalculadorapipelineSerializer(dadoscalculadorapipeline, many=True)
         return Response(serializer.data)
 
+    def post(self, request):
+        serializer = DadoscalculadorapipelineSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.view()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
 
 class DgabaseoperacoesAPIView(APIView):
     """...."""
@@ -73,6 +103,11 @@ class DgabaseoperacoesAPIView(APIView):
         serializer = DgabaseoperacoesSerializer(dgabaseoperacoes, many=True)
         return Response(serializer.data)
 
+    def post(self, request):
+        serializer = DgabaseoperacoesSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.view()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 class DgaceadiarioAPIView(APIView):
     """...."""
@@ -80,6 +115,12 @@ class DgaceadiarioAPIView(APIView):
         dgaceadiario = Dgaceadiario.objects.all()
         serializer = DgaceadiarioSerializer(dgaceadiario, many=True)
         return Response(serializer.data)
+
+    def post(self, request):
+        serializer = DgaceadiarioSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.view()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 class DgacurvasjurosAPIView(APIView):
@@ -89,6 +130,12 @@ class DgacurvasjurosAPIView(APIView):
         serializer = DgacurvasjurosSerializer(dgacurvasjuros, many=True)
         return Response(serializer.data)
 
+    def post(self, request):
+        serializer = DgacurvasjurosSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.view()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
 
 class DgagruposAPIView(APIView):
     """...."""
@@ -97,6 +144,12 @@ class DgagruposAPIView(APIView):
         serializer = DgagruposSerializer(dgagrupos, many=True)
         return Response(serializer.data)
 
+    def post(self, request):
+        serializer = DgagruposSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.view()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
 
 class DgamatrizmigracaoAPIView(APIView):
     """...."""
@@ -104,6 +157,12 @@ class DgamatrizmigracaoAPIView(APIView):
         dgamatrizmigracao = Dgamatrizmigracao.objects.all()
         serializer = DgamatrizmigracaoSerializer(dgamatrizmigracao, many=True)
         return Response(serializer.data)
+
+    def post(self, request):
+        serializer = DgamatrizmigracaoSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.view()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 class DgamontecarloAPIView(APIView):
@@ -114,12 +173,25 @@ class DgamontecarloAPIView(APIView):
         return Response(serializer.data)
 
 
+    def post(self, request):
+        serializer = DgamontecarloSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.view()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
 class DgaparametrosestrategiaportfolioAPIView(APIView):
     """...."""
     def get (self, request):
         dgaparametrosestrategiaportfolio = Dgaparametrosestrategiaportfolio.objects.all()
         serializer = DgaparametrosestrategiaportfolioSerializer(dgaparametrosestrategiaportfolio, many=True)
         return Response(serializer.data)
+
+    def post(self, request):
+        serializer = DgaparametrosestrategiaportfolioSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.view()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 class DgapercentualfepfAPIView(APIView):
@@ -129,6 +201,12 @@ class DgapercentualfepfAPIView(APIView):
         serializer = DgapercentualfepfSerializer(dgapercentualfepf, many=True)
         return Response(serializer.data)
 
+    def post(self, request):
+        serializer = DgapercentualfepfSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.view()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
 
 class DgarcpalfasbetasAPIView(APIView):
     """...."""
@@ -137,6 +215,12 @@ class DgarcpalfasbetasAPIView(APIView):
         serializer = DgarcpalfasbetasSerializer(dgarcpalfasbetas, many=True)
         return Response(serializer.data)
 
+    def post(self, request):
+        serializer = DgarcpalfasbetasSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.view()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
 
 class DgatargetpaisAPIView(APIView):
     """...."""
@@ -144,6 +228,12 @@ class DgatargetpaisAPIView(APIView):
         dgatargetpais = Dgatargetpais.objects.all()
         serializer = DgatargetpaisSerializer(dgatargetpais, many=True)
         return Response(serializer.data)
+
+    def post(self, request):
+        serializer = DgatargetpaisSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.view()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 class FprcnpjAPIView(APIView):
@@ -154,6 +244,13 @@ class FprcnpjAPIView(APIView):
         return Response(serializer.data)
 
 
+    def post(self, request):
+        serializer = FprcnpjSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.view()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
 class GarantiabemAPIView(APIView):
     """...."""
     def get (self, request):
@@ -162,10 +259,24 @@ class GarantiabemAPIView(APIView):
         return Response(serializer.data)
 
 
+    def post(self, request):
+        serializer = GarantiabemSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.view()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
 class GarantiaAPIView(APIView):
     """...."""
     def get (self, request):
         garantia = Garantia.objects.all()
         serializer = GarantiaSerializer(garantia, many=True)
         return Response(serializer.data)
+
+    def post(self, request):
+        serializer = GarantiaSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.view()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
 
